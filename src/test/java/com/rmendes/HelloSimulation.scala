@@ -2,7 +2,7 @@ package com.rmendes
 
 import com.intuit.karate.gatling.PreDef._
 import io.gatling.core.Predef._
-import scala.concurrent.duration.DurationIn
+import scala.concurrent.duration.DurationInt
 
 class HelloSimulation extends Simulation {
     val helloTest = scenario("Hello Scenario").exec(karateFeature("classpath:com/rmendes/simple.feature@name=simple"))
@@ -12,6 +12,6 @@ class HelloSimulation extends Simulation {
     )
 
     setUp(
-        helloTest.inject(rampUsers(20) during (1 minute)).protocols(protocol)
+        helloTest.inject(rampUsers(20) during (1 minutes)).protocols(protocol)
     )
 }
